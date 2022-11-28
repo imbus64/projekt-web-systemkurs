@@ -1,0 +1,38 @@
+data = {
+  "posts": [
+    {
+      "title": "Demo-titel",
+      "content": "Demo-content"
+    },
+    {
+      "title": "Demo-titel2",
+      "content": "Demo-content2"
+    },
+    {
+      "title": "Demo-titel3",
+      "content": "Demo-content3"
+    },
+    {
+      "title": "Demo-titel4",
+      "content": "Demo-content4"
+    }
+  ],
+  "links": [
+    { 
+      name: "Startsida",
+      href: "#1"
+    },
+    { 
+      name: "Våra Delmål",
+      href: "#2"
+    },
+    { 
+      name: "Samarbete",
+      href: "#3"
+    },
+    { 
+      name: "Kontakt",
+      href: "#4"
+    }
+  ]
+}

@@ -56,6 +56,7 @@ body {
 }
 
 #main {
+    color: var(--dark-font);
     padding: var(--default-padding);
     display: grid;
     grid-area: main;
@@ -66,6 +67,7 @@ body {
 }
 
 #main .text-section {
+    color: var(--bright-font);
     padding: calc(var(--default-padding) * 2);
     background-color: #0e0a0abb;
     /* border: 2px solid black; */
@@ -177,7 +179,7 @@ a:visited {
 }
 
 .dialogue {
-    position:relative;
+    position: relative;
     top: -15%;
     width: min(600px, 100%);
     height: min(300px, 100%);
@@ -186,10 +188,6 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.button {
-
 }
 
 .no-select {

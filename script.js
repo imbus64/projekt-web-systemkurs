@@ -1,4 +1,6 @@
-console.log("Executing");
+/*
+ * "data" is the json object that is loaded by the HTML. It contains values from the pages.json
+*/
 
 // Adds a link to the navigation bar
 // Keep names short due to overflow
@@ -11,6 +13,11 @@ function add_link(name, destination) {
     a.href = destination;
 
     a.appendChild(link);
+    a.addEventListener("click", () => {
+        // Hack to make internal link actually update before we read it in link_handler
+        window.location.hash = destination;
+        link_handler();
+    })
     navbar.appendChild(a);
 }
 
@@ -27,17 +34,7 @@ function insert_text_area(title, text) {
     main_area.appendChild(link);
 }
 
-add_link("Startsida", "#1");
-add_link("Våra Delmål", "#2");
-add_link("Samarbete", "#3");
-add_link("Kontakt", "#4");
-
-for (a = 0; a < 2; a++) {
-    insert_text_area("Titel", "Hejsan svejsan");
-    insert_text_area("Här kan man skriva saker", "Minsann");
-    insert_text_area("Väldigt viktigt", "Här ska vi sannerligen fixa saker och ting så att det blir bra.");
-}
-
+// This method removes the "loading cover"
 function rem_cov() {
     let cover = document.getElementById("page-cover");
     cover.style.transition = "visibility 0s linear 300ms, opacity 300ms"
@@ -45,4 +42,50 @@ function rem_cov() {
     cover.style.visibility = "hidden";
 }
 
+// Displays links
+for (link of data["links"]) {
+    add_link(link.name, link.href);
+}
+
+// Clears the page "canvas" called main and then retrieves the internal link "hash" of the url.
+// The "hash" then determines which render function is called.
+function link_handler() {
+    // If the page already has a hash it means that we are changing pages -> it is not our initial visit.
+    // This means that we should clear it before rendering another.
+    if (window.location.hash) document.getElementById("main").innerHTML = "";
+
+    switch (window.location.hash) {
+        case "#1": render_main(); break;
+        case "#2": render_second(); break;
+        case "#3": ; break; // Uninmplemented
+        case "#4": ; break; // Uninmplemented
+        case "": render_main(); break;
+        default: render_error(); break;
+    }
+}
+
+// Responsible for inserting all elements associated with the main page
+function render_main() {
+    // Insert all posts.
+    for (post of data["posts"]) {
+        insert_text_area(post["title"], post["content"]);
+    }
+}
+
+function render_second() {
+    let main_area = document.getElementById("main");
+    main_area.innerText = "Sida 2";
+}
+
+// Default "404" page
+function render_error() {
+    console.log("Invalid page");
+    let main_area = document.getElementById("main");
+    main_area.innerText = "Invalid page: 404";
+}
+
+// Call initial link_handler to render main page on first visit
+link_handler();
+
+// Make javascript remove the "loading cover" when site is fully loaded
 document.addEventListener("DOMContentLoaded", rem_cov);
