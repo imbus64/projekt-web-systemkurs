@@ -53,9 +53,6 @@ function insert_quiz() {
         question_block.appendChild(form);
         text_area.appendChild(question_block);
     });
-    // This is not a pretty solution
-    text_area.appendChild(document.createElement("br"));
-    text_area.appendChild(document.createElement("br"));
     m.appendChild(text_area);
 }
 
@@ -65,7 +62,7 @@ function redraw_scores() {
     let score_elem = document.getElementById("score");
     if (!score_elem) {
         const quiz_section = document.querySelector(".text-section");
-        score_elem = document.createElement("span");
+        score_elem = document.createElement("div");
         score_elem.id = "score";
         quiz_section.appendChild(score_elem);
     }

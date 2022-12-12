@@ -62,6 +62,7 @@ body {
 }
 
 #main .text-section {
+    font-size: 115%;
     position: relative;
     color: var(--bright-font);
     padding: calc(var(--default-padding) * 2) calc(var(--default-padding) * 4);
@@ -189,10 +190,8 @@ body {
 }
 
 #score {
-    position: absolute;
-    top: 0;
-    right: 0;
     font-size: 2rem;
+    text-align: center;
     padding: calc(var(--default-padding)*2);
     padding-right: calc(var(--default-padding)*3);
 }

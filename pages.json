@@ -14,36 +14,36 @@ data = {
     },
   ],
   "mainpage": {
-    "title": "Huvudtitel",
-    "text": "Innehåll"
+    "title": "Välkommen!",
+    "text": "<br> Välkommen till vår sida om hållbarhet! Här har vi samlat lite information rörande hållbarhet i dess olika former. Utforska gärna våra olika sidor och se hur många poäng du kan få på vårt quiz!"
   },
   "page1": {
-    "title": "Titel 1",
-    "text": "Text"
+    "title": "Ekologisk Hållbarhet",
+    "text": "<br> Jordens miljö har en betydande roll för människorna men också alla andra organismer på planeten att ha land att stå på, luft att andas och resurser att ta del av är huvudanledningen mänskligheten har utvecklat sig till vart det är idag dock innebär det också att människan har större ansvar att hantera planeten som de lever på. Ekologisk Hållbarhet handlar om hur samhället kan på en långsiktig nivå bevara jordens ekosystem som bland annat: vatten renhet, landanvändning, jord kvalitet och luftkvalitet. <br><br> Det är enkelt att glömma bort samhällets påverkan på jordens ekosystem men redan idag kan man se stora ändringar i miljön på grund av mänskligheten. Till exempel jordens temperatur vilket har ökat drastisk på grund av samhällets koldioxidutsläpp framför allt efter industrialiseringen. Människans användning av bland annat fossila bränsle och avskogning har lett till en 50% större koncentration av koldioxid i atmosfären sen 1750 vilket har lett till bland annat en stigande världs temperatur, fler extrema vädersituationer och luftföreningar. <br> <br><img style='height:200px;' src=Koldioxid.png alt='Co2 Emission graph'> <img style='height:200px;' src=Temperature.png alt='Temperature Graph'><br><br> Ett sätt för samhället att utveckla ifrån den höga påverkan på miljön hade varit att vara mer sparsamt med resurserna genom att återanvända material men också ta del av olika tekniska lösningar som sol/vind energi för att skapa en alternativ till fossila bränslen. Ytterligare kan företag vara mer ekologisk hållbart genom att använda hållbara produkter. <br> <br> Men det är inte bara företag och samhället som helhet som kan förbättras, individen kan också göra sin del för att vara mer hållbart. Till exempel att använda buss/tåg i stället för bil eller ännu bättre cyklar för att minska sitt koldioxidutsläpp. Att konsumera mindre kött bidra också till att spara mer vatten, land och koldioxidutsläpp som kommer från köttets produktion och transport.   "
   },
   "page2": {
-    "title": "Titel 2",
-    "text": "Text <br> text test <p>a<b>sd</b></p><br><img style='height:200px;' src=bird.jpg alt='fågel'>"
+    "title": "Social Hållbarhet",
+    "text": "<br>"
   },
   "page3": {
-    "title": "Titel 3",
-    "text": "Text"
+    "title": "Ekonomisk Hållbarhet",
+    "text": "<br> Jordklotets resurs är begränsade därför måste vår utveckling vara hållbar för att kommande generationer ska kunna tillfredsställa sina behov. Den ekonomiska dimensionen av hållbar utveckling, handlar om att skapa stabila och sunda ekonomiska förhållande, samtidigt som man inte får förstöra naturresurser eller öka skulder. I denna texten kommer vi dela upp i tre olika delar: vad samhället har för ansvar, vad företagen har för ansvar samt konsumenterna ansvar för att bidra till en ekonomisk hållbar utveckling.  <br><br>Samhället har en betydande roll när den kommer till hållbar utvecklingen. Människan behöver tjänster och varor för att leva och hålla en god levnadsstandar. Arbetskraft, maskiner och naturresurser används vid framställningen av varor och tjänster. Då är det viktigt att se till att framställningen och villkoren för framställningen sker på ett hållbart sätt och att det inte slukar sociala och ekologiska resurser, utan håller sig inom ramen för vad vår planet klarar av. Samhället måste också bekämpa några problem som motverkar ett ekonomiskt hållbart samhälle, exempelvis: Mutor och korruption och skattefusk. Ett samhälle där mutor och korruption finns skadar samhället eftersom det leder till högre kostnader och en snedvriden konkurrens. Samhället måste aktivt jobba för att förebygga detta. Likadant med skattefusk eftersom alla då inte bidrar och hjälper till det samhälle vi lever i.  <br><br>Det företagen kan göra för bidra till en ekonomisk hållbarhet är att ta fram sin produkter och tjänster på ett sätt som påverkar miljö på ett så litet sätt som möjligt samt förbrukningen av naturresurser. Även är det viktigt att dessa produkter minskar energiförbrukningen för kunderna.  Företagen har också ett ansvar för deras investeringar. Ett företags investering bör vara hållbar (SRI, sustainable responsible investment) för att maximera den positiva påverkan av denna investeringen.  <br><br>Vi som konsumenter har också ett ansvara när det kommer till hållbara utveckling. Då vår konsumtion har en stor påverkan är det viktigt med vad vi konsumerar. Eftersom människor burkar agera rationellt så tar vi oftast de produkter och tjänster som oftast är billigast men kanske inte de bästa. Varje person borde istället ta ansvar för sin konsumtion och bör välja produkter och tjänster som har en mindre miljöpåverkan dels genom att de sliter mindre på våra naturresurser samt genom tillverkningsprocesserna, även kan vi välja produkter som är förnybara, har en mindre energi påverkan. Ekonomiskt hållbarhet handlar mycket om att välja de produkter  som är minst skadliga för vårt jordklot. Varje hållbart konsumentbeslut leder till ökad ekonomiskt hållbarhet."
   },
   "links": [
     { 
-      name: "Startsida",
+      name: "Start",
       href: "#1"
     },
     { 
-      name: "Våra Delmål",
+      name: "Ekologisk",
       href: "#2"
     },
     { 
-      name: "Samarbete",
+      name: "Social",
       href: "#3"
     },
     { 
-      name: "Kontakt",
+      name: "Ekonomisk",
       href: "#4"
     },
     {
@@ -54,19 +54,51 @@ data = {
   "quiz": {
     "questions": [
       {
-        "question": "What is ...?",
+        "question": "Vad Innebär ekologisk hållbarhet?",
         "answers": [
-          {text: "Incorrect answer", correct: false },
-          {text: "Incorrect answer", correct: false },
-          {text: "Correct answer", correct: true },
+          {text: "Tar hänsyn till människan", correct: false },
+          {text: "Tar hänsyn till Regeringen", correct: false },
+          {text: "Tar hänsyn till naturmiljön", correct: true },
         ],
       },
       {
-        "question": "What is ...?",
+        "question": "Hugos Question ------",
         "answers": [
-          {text: "Incorrect answer", correct: false },
-          {text: "Incorrect answer", correct: false },
-          {text: "Correct answer", correct: true },
+          {text: "--------------", correct: false },
+          {text: "------------------------", correct: true },
+          {text: "-------------------------", correct: false },
+        ],
+      },
+      {
+        "question": "Vad är ekonomisk hållbarhet?",
+        "answers": [
+          {text: "Vi ska tjäna så mycket pengar som möjligt.", correct: false },
+          {text: "Vi ska skapa sunda ekonomiska förhållande samtidigt som vi inte slösar på naturresurser.", correct: true },
+          {text: "Slösa på naturresurserna så mycket att vi blir ekonomiskt oberoende", correct: false },
+        ],
+      },
+      {
+        "question": "Vilken alternativ bidrag inte till ekologisk hållbarhet för individen?",
+        "answers": [
+          {text: "Konsumera mindre kött", correct: false },
+          {text: "Ta bus/tåg eller cykla till jobbet", correct: false },
+          {text: "Investera i utbildning", correct: true },
+        ],
+      },
+      {
+        "question": "Vad kan man som konsument göra för bidra till en ekonomisk hållbarhet?",
+        "answers": [
+          {text: "Köpa produkter/tjänster som är förnybara.", correct: true },
+          {text: "Köpa en produkt/tjänst som sliter mycket på jordens naturresurser", correct: false },
+          {text: "Köpa de billigaste produkterna/tjänsterna", correct: false },
+        ],
+      },
+      {
+        "question": "Vilket Område av hållbarutveckling passar till ”Äta vegetarisk”",
+        "answers": [
+          {text: "Ekonomiskt och Socialt", correct: false },
+          {text: "Ekonomiskt och Ekologiskt", correct: true },
+          {text: "Ekologiskt och Socialt", correct: false },
         ],
       }
     ]
