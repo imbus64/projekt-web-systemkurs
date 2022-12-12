@@ -13,6 +13,10 @@ data = {
       "content": "Demo-content3"
     },
   ],
+  "mainpage": {
+    "title": "Huvudtitel",
+    "text": "Innehåll"
+  },
   "page1": {
     "title": "Titel 1",
     "text": "Text"

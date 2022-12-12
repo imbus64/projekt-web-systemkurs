@@ -4,15 +4,7 @@
 /* Variables defined here to be references later in the main stylesheet */
 :root {
     /* Do not use these directly */
-    /* --navy-blue: #64766A;
-    --steel-teal: #62929eff;
-    --brown-sugar: #b07156ff;
-    --magnolia: #f6f2ffff;
-    --floral-white: #f7f4eaff; */
-
     --bistre: #452101;
-    --peace: #C0A9BD;
-
     --serenity: #94A7AE;
     --growth: #64766A;
     --calm: #F4F2F3;
@@ -24,8 +16,6 @@
     --dark-font: var(--bistre);
     --background: var(--serenity);
 
-
-    /* --bright-font: #766A64; */
     /* Some frequently used measurements */
     --default-padding: 15px;
     --page-max-width: 1200px;
@@ -68,15 +58,13 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
     gap: var(--default-padding);
-    max-width: var(--page-max-width);
+    max-width: 800px; var(--page-max-width);
 }
 
 #main .text-section {
     position: relative;
     color: var(--bright-font);
-    padding: calc(var(--default-padding) * 2) calc(var(--default-padding) * 3);
-    /* padding-top: calc(var(--default-padding) * 2);
-    padding-bottom: calc(var(--default-padding) * 4); */
+    padding: calc(var(--default-padding) * 2) calc(var(--default-padding) * 4);
     background-color: #6A6476A0;
     box-shadow: inset 0 0 8px 2px #00000030;
 }
@@ -184,6 +172,8 @@ body {
 #footer #footer_content {
     text-align: center;
     font-family: Verdana, sans-serif;
+    color: #FFFFFF80;
+    font-size: 0.9rem;
     height: 100%;
     width: 100%;
     padding: calc(var(--default-padding)*2);

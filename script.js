@@ -5,13 +5,18 @@
 let score = 0;
 const answer_states = {};
 
+// Used to randomize order of answers and questions
+function shuffle_array(arr) {
+    return arr.sort(() => Math.random() < 0.5);
+}
+
+// Inserts a quiz containing the set of questions defined in the json
 function insert_quiz() {
     const m = document.getElementById("main");
     let text_area = document.createElement("div");
     text_area.classList.add("text-section");
 
-    // for (question of data.quiz.questions) {
-    data.quiz.questions.forEach((question, idx) => {
+    shuffle_array(data.quiz.questions).forEach((question, idx) => {
         const question_block = document.createElement("div");
         question_block.className = "question_block";
         const q_elem = document.createElement("p");
@@ -19,14 +24,13 @@ function insert_quiz() {
         question_block.appendChild(q_elem);
 
         const form = document.createElement("form");
-        question.answers.forEach(answer => {
+        shuffle_array(question.answers).forEach(answer => {
             const a_container = document.createElement("label");
             a_container.classList.add("no-select");
             const radio_btn = document.createElement("input")
             radio_btn.type = "radio";
             radio_btn.name = "quiz-answer";
             radio_btn.addEventListener("click", () => {
-                console.log(answer_states);
                 if (!answer_states[idx]) {
                     answer_states[idx] = "checked";
                     if (answer.correct) {
@@ -46,7 +50,6 @@ function insert_quiz() {
             a_container.appendChild(answerText);
             form.appendChild(a_container);
         })
-        console.log(1);
         question_block.appendChild(form);
         text_area.appendChild(question_block);
     });
@@ -56,6 +59,8 @@ function insert_quiz() {
     m.appendChild(text_area);
 }
 
+// Scores are drawn in an element inside the only ".text-section" present in the quiz state
+// This element has position: absolute, so it doesent interfere with other siblings
 function redraw_scores() {
     let score_elem = document.getElementById("score");
     if (!score_elem) {
@@ -86,6 +91,7 @@ function add_link(name, destination) {
     navbar.appendChild(a);
 }
 
+// Displays a set of names and som other info in the footer
 function display_contanct_info() {
     let footer = document.querySelector("#footer");
     let footer_content = document.createElement("div")
@@ -143,28 +149,28 @@ function link_handler() {
 
 // Responsible for inserting all elements associated with the main page
 function render_main() {
+    insert_text_area(data.mainpage.title, data.mainpage.text);
     // Insert all posts.
-    for (post of data["posts"]) {
-        insert_text_area(post["title"], post["content"]);
-    }
+    // for (post of data["posts"]) {
+    //     insert_text_area(post["title"], post["content"]);
+    // }
 }
 
+// These function names refers to the internal link (#1, #2, #3 e.t.c.)
+// They correspond to different page names defined in the json.
 function render_second() {
     insert_text_area(data.page1.title, data.page1.text);
-    //"Delmålen är följande", "Skriva klart hemsidan.")
 }
 
 function render_third() {
     insert_text_area(data.page2.title, data.page2.text);
-    // insert_text_area("Samarbete", "Här samarbetar vi visst.")
 }
 
 function render_fourth() {
     insert_text_area(data.page3.title, data.page3.text);
-    // insert_text_area("Här kan du kontakta oss", "skogen@brybär.se");
 }
 
-// Default "404" page
+// Default "404" page, should never trigger unless manual url-rewrite
 function render_error() {
     console.log("Invalid page");
     let main_area = document.getElementById("main");
@@ -176,4 +182,6 @@ link_handler();
 
 // Make javascript remove the "loading cover" when site is fully loaded
 document.addEventListener("DOMContentLoaded", rem_cov);
+
+// Draw this only once, since the footer isnt used as a "dynamic" region
 display_contanct_info();
