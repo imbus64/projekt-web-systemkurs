@@ -50,6 +50,9 @@ function insert_quiz() {
         question_block.appendChild(form);
         text_area.appendChild(question_block);
     });
+    // This is not a pretty solution
+    text_area.appendChild(document.createElement("br"));
+    text_area.appendChild(document.createElement("br"));
     m.appendChild(text_area);
 }
 
