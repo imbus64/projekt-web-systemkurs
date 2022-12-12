@@ -93,10 +93,8 @@ function display_contanct_info() {
     let footer = document.querySelector("#footer");
     let footer_content = document.createElement("div")
     footer_content.id = "footer_content";
-    footer_content.innerText = `Projekt Lunds Universitet Q3-Q4 2022
-    Namn Namnsson
-    Test Testsson
-    Mårten Oscarsson`
+    footer_content.innerText = "Projekt Lunds Universitet Q3-Q4 2022"
+    footer_content.innerText += "\n" + shuffle_array(data.authors).join("\n")
     footer.appendChild(footer_content);
 }
 
@@ -138,7 +136,8 @@ function link_handler() {
         case "#2": render_second(); break;
         case "#3": render_third(); break; // Uninmplemented
         case "#4": render_fourth(); break; // Uninmplemented
-        case "#5": insert_quiz(); break;
+        case "#5": render_fifth(); break; // Uninmplemented
+        case "#6": insert_quiz(); break;
         case "": render_main(); break;
         default: render_error(); break;
     }
@@ -165,6 +164,10 @@ function render_third() {
 
 function render_fourth() {
     insert_text_area(data.page3.title, data.page3.text);
+}
+
+function render_fifth() {
+    insert_text_area(data.page4.title, data.page4.text);
 }
 
 // Default "404" page, should never trigger unless manual url-rewrite
