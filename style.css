@@ -147,7 +147,7 @@ body {
 #header #navbar ul a {
     display: inline-block;
     margin: var(--default-padding);
-    padding: .618rem 1rem .618rem 1rem;
+    padding: .618rem 0rem .618rem 0rem;
     border-bottom: 2px solid;
     border-top: 2px solid;
     transition: .5s;
@@ -158,7 +158,6 @@ body {
 }
 
 #header #navbar ul li {
-    font-size: 120%;
     font-family: Verdana, sans-serif;
     white-space: nowrap;
     overflow: hidden;
