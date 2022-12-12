@@ -2,6 +2,68 @@
  * "data" is the json object that is loaded by the HTML. It contains values from the pages.json
 */
 
+let score = 0;
+const answer_states = {};
+
+function insert_quiz() {
+    const m = document.getElementById("main");
+    let text_area = document.createElement("div");
+    text_area.classList.add("text-section");
+
+    // for (question of data.quiz.questions) {
+    data.quiz.questions.forEach((question, idx) => {
+        const question_block = document.createElement("div");
+        question_block.className = "question_block";
+        const q_elem = document.createElement("p");
+        q_elem.innerText = question.question;
+        question_block.appendChild(q_elem);
+
+        const form = document.createElement("form");
+        question.answers.forEach(answer => {
+            const a_container = document.createElement("label");
+            a_container.classList.add("no-select");
+            const radio_btn = document.createElement("input")
+            radio_btn.type = "radio";
+            radio_btn.name = "quiz-answer";
+            radio_btn.addEventListener("click", () => {
+                console.log(answer_states);
+                if (!answer_states[idx]) {
+                    answer_states[idx] = "checked";
+                    if (answer.correct) {
+                        score++;
+                        a_container.style.backgroundColor = "#00FF0030";
+                    }
+                    else {
+                        a_container.style.backgroundColor = "#FF000030";
+                    }
+                    redraw_scores();
+                }
+            });
+            a_container.appendChild(radio_btn);
+
+            const answerText = document.createElement("span");
+            answerText.innerText = answer.text;
+            a_container.appendChild(answerText);
+            form.appendChild(a_container);
+        })
+        console.log(1);
+        question_block.appendChild(form);
+        text_area.appendChild(question_block);
+    });
+    m.appendChild(text_area);
+}
+
+function redraw_scores() {
+    let score_elem = document.getElementById("score");
+    if (!score_elem) {
+        const quiz_section = document.querySelector(".text-section");
+        score_elem = document.createElement("span");
+        score_elem.id = "score";
+        quiz_section.appendChild(score_elem);
+    }
+    score_elem.innerText = "Poäng: " + score;
+}
+
 // Adds a link to the navigation bar
 // Keep names short due to overflow
 function add_link(name, destination) {
@@ -70,6 +132,7 @@ function link_handler() {
         case "#2": render_second(); break;
         case "#3": render_third(); break; // Uninmplemented
         case "#4": render_fourth(); break; // Uninmplemented
+        case "#5": insert_quiz(); break;
         case "": render_main(); break;
         default: render_error(); break;
     }
@@ -84,15 +147,18 @@ function render_main() {
 }
 
 function render_second() {
-    insert_text_area("Delmålen är följande", "Skriva klart hemsidan.")
+    insert_text_area(data.page1.title, data.page1.text);
+    //"Delmålen är följande", "Skriva klart hemsidan.")
 }
 
 function render_third() {
-    insert_text_area("Samarbete", "Här samarbetar vi visst.")
+    insert_text_area(data.page2.title, data.page2.text);
+    // insert_text_area("Samarbete", "Här samarbetar vi visst.")
 }
 
 function render_fourth() {
-    insert_text_area("Här kan du kontakta oss", "skogen@brybär.se");
+    insert_text_area(data.page3.title, data.page3.text);
+    // insert_text_area("Här kan du kontakta oss", "skogen@brybär.se");
 }
 
 // Default "404" page

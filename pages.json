@@ -12,27 +12,19 @@ data = {
       "title": "Demo-titel3",
       "content": "Demo-content3"
     },
-    {
-      "title": "Demo-titel4",
-      "content": "Demo-content4"
-    },
-    {
-      "title": "Demo-titel",
-      "content": "Demo-content"
-    },
-    {
-      "title": "Demo-titel2",
-      "content": "Demo-content2"
-    },
-    {
-      "title": "Demo-titel3",
-      "content": "Demo-content3"
-    },
-    {
-      "title": "Demo-titel3",
-      "content": "Demo-content3"
-    },
   ],
+  "page1": {
+    "title": "Titel 1",
+    "text": "Text"
+  },
+  "page2": {
+    "title": "Titel 2",
+    "text": "Text <br> text test <p>a<b>sd</b></p><br><img style='height:200px;' src=bird.jpg alt='fågel'>"
+  },
+  "page3": {
+    "title": "Titel 3",
+    "text": "Text"
+  },
   "links": [
     { 
       name: "Startsida",
@@ -60,11 +52,18 @@ data = {
       {
         "question": "What is ...?",
         "answers": [
-          "Ans 1",
-          "Ans 2",
-          "Ans 3"
+          {text: "Incorrect answer", correct: false },
+          {text: "Incorrect answer", correct: false },
+          {text: "Correct answer", correct: true },
         ],
-        "correct": 1
+      },
+      {
+        "question": "What is ...?",
+        "answers": [
+          {text: "Incorrect answer", correct: false },
+          {text: "Incorrect answer", correct: false },
+          {text: "Correct answer", correct: true },
+        ],
       }
     ]
   }
