@@ -21,6 +21,17 @@ function add_link(name, destination) {
     navbar.appendChild(a);
 }
 
+function display_contanct_info() {
+    let footer = document.querySelector("#footer");
+    let footer_content = document.createElement("div")
+    footer_content.id = "footer_content";
+    footer_content.innerText = `Projekt Lunds Universitet Q3-Q4 2022
+    Namn Namnsson
+    Test Testsson
+    Mårten Oscarsson`
+    footer.appendChild(footer_content);
+}
+
 // Function to add a section to the main content area
 function insert_text_area(title, text) {
     let main_area = document.getElementById("main");
@@ -57,8 +68,8 @@ function link_handler() {
     switch (window.location.hash) {
         case "#1": render_main(); break;
         case "#2": render_second(); break;
-        case "#3": ; break; // Uninmplemented
-        case "#4": ; break; // Uninmplemented
+        case "#3": render_third(); break; // Uninmplemented
+        case "#4": render_fourth(); break; // Uninmplemented
         case "": render_main(); break;
         default: render_error(); break;
     }
@@ -73,8 +84,15 @@ function render_main() {
 }
 
 function render_second() {
-    let main_area = document.getElementById("main");
-    main_area.innerText = "Sida 2";
+    insert_text_area("Delmålen är följande", "Skriva klart hemsidan.")
+}
+
+function render_third() {
+    insert_text_area("Samarbete", "Här samarbetar vi visst.")
+}
+
+function render_fourth() {
+    insert_text_area("Här kan du kontakta oss", "skogen@brybär.se");
 }
 
 // Default "404" page
@@ -89,3 +107,4 @@ link_handler();
 
 // Make javascript remove the "loading cover" when site is fully loaded
 document.addEventListener("DOMContentLoaded", rem_cov);
+display_contanct_info();

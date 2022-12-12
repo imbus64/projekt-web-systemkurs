@@ -15,7 +15,23 @@ data = {
     {
       "title": "Demo-titel4",
       "content": "Demo-content4"
-    }
+    },
+    {
+      "title": "Demo-titel",
+      "content": "Demo-content"
+    },
+    {
+      "title": "Demo-titel2",
+      "content": "Demo-content2"
+    },
+    {
+      "title": "Demo-titel3",
+      "content": "Demo-content3"
+    },
+    {
+      "title": "Demo-titel3",
+      "content": "Demo-content3"
+    },
   ],
   "links": [
     { 
@@ -33,6 +49,23 @@ data = {
     { 
       name: "Kontakt",
       href: "#4"
+    },
+    {
+      name: "Quiz",
+      href: "#5"
     }
-  ]
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "question": "What is ...?",
+        "answers": [
+          "Ans 1",
+          "Ans 2",
+          "Ans 3"
+        ],
+        "correct": 1
+      }
+    ]
+  }
 }

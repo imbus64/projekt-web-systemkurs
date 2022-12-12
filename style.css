@@ -4,14 +4,15 @@
 /* Variables defined here to be references later in the main stylesheet */
 :root {
     /* Do not use these directly */
-    --navy-blue: #64766A;
-    --bistre: #452101;
+    /* --navy-blue: #64766A;
     --steel-teal: #62929eff;
     --brown-sugar: #b07156ff;
     --magnolia: #f6f2ffff;
-    --floral-white: #f7f4eaff;
+    --floral-white: #f7f4eaff; */
 
+    --bistre: #452101;
     --peace: #C0A9BD;
+
     --serenity: #94A7AE;
     --growth: #64766A;
     --calm: #F4F2F3;
@@ -36,30 +37,32 @@
     /* border: 1px dotted red; */
 }
 
+a:link,
+a:visited {
+    color: inherit;
+}
+
 html {
     height: 100%;
 }
 
 body {
-    margin: 0;
-    display: grid;
-    height: 100%;
-    grid-template-areas:
-        "nav nav nav"
-        "left main right"
-        "foot foot foot";
-    grid-template-columns: 1fr min(100%, var(--page-max-width)) 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100%;
     row-gap: var(--default-padding);
     color: var(--bright-font);
     background-color: var(--secondary);
 }
 
 #main {
+    width: 100%;
+    height:100%;
     color: var(--dark-font);
     padding: var(--default-padding);
     display: grid;
-    grid-area: main;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
     gap: var(--default-padding);
@@ -70,18 +73,29 @@ body {
     color: var(--bright-font);
     padding: calc(var(--default-padding) * 2);
     background-color: #0e0a0abb;
-    /* border: 2px solid black; */
     box-shadow: inset 0 0 5px 4px #00000050;
 }
 
+/* Hacks so that the last child takes up the remaining space, if any */
+/* Note that this particular implementation is specific to the number of column (3 in our case) */
+#main>*:nth-child(3n-1):nth-last-of-type(1) {
+    grid-column: span 2;
+}
+
+#main>*:nth-child(3n-2):nth-last-of-type(1) {
+    grid-column: span 3;
+}
+
 #header {
+    max-height: 100px;
+    width: 100%;
     grid-area: nav;
     text-align: center;
     background-color: var(--primary);
     color: var(--bright-font);
     display: flex;
     justify-content: center;
-    box-shadow: 0px 2px 8px black;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
 }
 
 #header #navbar {
@@ -117,8 +131,7 @@ body {
 }
 
 #header #navbar ul {
-    /* margin:0; */
-    padding: 0;
+    height:100%;
     width: 100%;
     display: flex;
     list-style: none;
@@ -130,23 +143,14 @@ body {
     display: inline-block;
     margin: var(--default-padding);
     padding: .618rem 1rem .618rem 1rem;
-    /* padding: .309rem .5rem .309rem .5rem; */
     border-bottom: 2px solid;
     border-top: 2px solid;
     transition: .5s;
     cursor: pointer;
-
-    /* max-height: 100px; */
-    /* height: 100%; */
     width: 100%;
     overflow: hidden;
 
     text-decoration: none;
-}
-
-a:link,
-a:visited {
-    color: inherit;
 }
 
 #header #navbar ul li {
@@ -163,11 +167,24 @@ a:visited {
 }
 
 #footer {
-    grid-area: foot;
-    background-color: var(--primary);
+    width: 100%;
     height: 100%;
+    background-color: var(--primary);
     min-height: 80px;
-    box-shadow: 0px -2px 8px black;
+    box-shadow: 0px -2px 8px rgba(0,0,0,0.4);
+    display: grid;
+    flex-direction: column;
+    justify-items: center;
+}
+
+#footer #footer_content {
+    text-align:center;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Verdana, sans-serif;
+    height: 100%;
+    width: 100%;
+    padding: calc(var(--default-padding)*2);
+    max-width: var(--page-max-width);
 }
 
 #page-cover {
@@ -198,6 +215,8 @@ a:visited {
 }
 
 @media only screen and (max-width: 1000px) {
+
+    /* Set hamburger menu */
     body {
         grid-template-columns: 0 100% 0;
         row-gap: 0;
@@ -205,5 +224,13 @@ a:visited {
 
     #main {
         grid-template-columns: 1fr;
+    }
+
+    #main>*:nth-child(3n-1):nth-last-of-type(1) {
+        grid-column: span 1;
+    }
+
+    #main>*:nth-child(3n-2):nth-last-of-type(1) {
+        grid-column: span 1;
     }
 }
